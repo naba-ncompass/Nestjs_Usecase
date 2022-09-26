@@ -1,6 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
+//the ‘Test’ class from ‘@nestjs/testing’ provides a test execution context 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+
+// unit testing of your application.
+//  Jest is provided as the default testing framework.
 
 describe('AppController', () => {
   let appController: AppController;
@@ -17,6 +21,7 @@ describe('AppController', () => {
   describe('root', () => {
     it('should return "Hello World!"', () => {
       expect(appController.getHello()).toBe('Hello World!');
+      // verify getHello() method of AppController
     });
   });
 });

@@ -10,6 +10,7 @@ import { GetEstimateDto } from './dtos/get-estimate.dto';
 export class ReportsService {
   constructor(@InjectRepository(Report) private repo: Repository<Report>) {}
 
+  // check for the validation in user-decorator 
   createEstimate({ make, model, lng, lat, year, mileage }: GetEstimateDto) {
     return this.repo
       .createQueryBuilder()

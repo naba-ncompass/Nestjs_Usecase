@@ -18,13 +18,7 @@ const cookieSession = require('cookie-session');
       entities: [User, Report],
       synchronize: true,
     }),
-
-    // TypeOrmModule.forRoot({
-    //   type: 'sqlite',
-    //   database: 'db.sqlite',
-    //   entities: [User, Report],
-    //   synchronize: true,
-    // }),
+    // typeOrm module for connecting to sqlite 
     UsersModule,
     ReportsModule,
   ],

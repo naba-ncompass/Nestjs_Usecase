@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   (app as any).set('etag', false);
+  // have no tag 
   app.use((req, res, next) => {
     res.removeHeader('x-powered-by');
     res.removeHeader('date');

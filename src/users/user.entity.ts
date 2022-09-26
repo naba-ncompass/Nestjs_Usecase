@@ -11,6 +11,10 @@ import { Report } from '../reports/report.entity';
 
 @Entity()
 export class User {
+
+  // validating all entity before going to methord
+
+
   @PrimaryGeneratedColumn()
   id: number;
 

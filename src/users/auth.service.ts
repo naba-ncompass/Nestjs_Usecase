@@ -38,11 +38,13 @@ export class AuthService {
   }
 
   async signin(email: string, password: string) {
+    // check if the data is present or not 
     const [user] = await this.usersService.find(email);
     if (!user) {
       throw new NotFoundException('user not found');
     }
 
+    //  split the encryption and remove salt and unhash it
     const [salt, storedHash] = user.password.split('.');
 
     const hash = (await scrypt(password, salt, 32)) as Buffer;

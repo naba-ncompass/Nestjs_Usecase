@@ -7,6 +7,7 @@ import { User } from './user.entity';
 import { CurrentUserMiddleware } from './middlewares/current-user.middleware';
 
 @Module({
+  // calling all modules 
   imports: [TypeOrmModule.forFeature([User])],
   controllers: [UsersController],
   providers: [UsersService, AuthService],

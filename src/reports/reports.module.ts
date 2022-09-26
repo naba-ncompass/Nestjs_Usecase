@@ -9,4 +9,7 @@ import { Report } from './report.entity';
   controllers: [ReportsController],
   providers: [ReportsService],
 })
+
+// use repots module and work on it imported everything 
+
 export class ReportsModule {}

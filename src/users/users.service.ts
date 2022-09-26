@@ -6,13 +6,15 @@ import { User } from './user.entity';
 @Injectable()
 export class UsersService {
   constructor(@InjectRepository(User) private repo: Repository<User>) {}
+  // repo stand for repository 
 
+  // create function to insert 
   create(email: string, password: string) {
     const user = this.repo.create({ email, password });
 
     return this.repo.save(user);
   }
-
+  // findone function to serach by id 
   findOne(id: number) {
     if (!id) {
       return null;
@@ -24,6 +26,7 @@ export class UsersService {
     });
   }
 
+  // find by email 
   find(email: string) {
     return this.repo.find({ 
       where: { 
@@ -32,6 +35,7 @@ export class UsersService {
     });
   }
 
+  // update function is for the id to be updated 
   async update(id: number, attrs: Partial<User>) {
     const user = await this.findOne(id);
     if (!user) {
@@ -41,6 +45,7 @@ export class UsersService {
     return this.repo.save(user);
   }
 
+  // remove will destroy it 
   async remove(id: number) {
     const user = await this.findOne(id);
     if (!user) {

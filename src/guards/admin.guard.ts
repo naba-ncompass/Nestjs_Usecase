@@ -14,6 +14,7 @@ export class AdminGuard implements CanActivate {
     // The host.switchToHttp() helper call returns an HttpArgumentsHost object that is appropriate for the HTTP application context. 
     // The HttpArgumentsHost object has two useful methods we can use to extract the desired objects.
 
+    
     if (!request.currentUser) {
       return false;
     }
