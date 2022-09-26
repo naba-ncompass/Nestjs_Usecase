@@ -6,7 +6,7 @@ import { CreateReportDto } from './dtos/create-report.dto';
 import { User } from '../users/user.entity';
 import { GetEstimateDto } from './dtos/get-estimate.dto';
 
-@Injectable()
+@Injectable()  // The main idea of a provider is that it can be injected as a dependency
 export class ReportsService {
   constructor(@InjectRepository(Report) private repo: Repository<Report>) {}
 

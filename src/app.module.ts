@@ -15,8 +15,8 @@ const cookieSession = require('cookie-session');
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'db.sqlite',
-      entities: [User, Report],
-      synchronize: true,
+      entities: [User, Report], // database name which we need to updated 
+      synchronize: true, // (property) synchronize?: boolean Indicates if database schema should be auto created on every application launch. 
     }),
     // typeOrm module for connecting to sqlite 
     UsersModule,
@@ -28,13 +28,13 @@ const cookieSession = require('cookie-session');
     {
       provide: APP_PIPE,
       useValue: new ValidationPipe({
-        whitelist: true,
+        whitelist: true, // If set to true validator will strip validated object of any properties that do not have any decorators.
       }),
     },
   ],
 })
 export class AppModule {
-  configure(consumer: MiddlewareConsumer) {
+  configure(consumer: MiddlewareConsumer) {   // work as the Interface defining method for applying user defined middleware to routes.
     consumer
       .apply(
         cookieSession({

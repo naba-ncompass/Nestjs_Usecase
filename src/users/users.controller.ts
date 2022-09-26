@@ -1,18 +1,5 @@
-import {
-  Body,
-  Controller,
-  Post,
-  Get,
-  Patch,
-  Delete,
-  Param,
-  Query,
-  NotFoundException,
-  Session,
-  UseGuards,
-  GoneException,
-  HttpException,
-} from '@nestjs/common';
+import {  Body,  Controller,  Post,  Get,  Patch,  Delete,  Param,  Query,  NotFoundException,
+  Session,  UseGuards,  GoneException,  HttpException} from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { UsersService } from './users.service';
@@ -33,14 +20,14 @@ export class UsersController {
 
   @Get('/whoami')
   @UseGuards(AuthGuard)
-  whoAmI(@CurrentUser() user: User) {
+  whoAmI(@CurrentUser() user: User, @Session() session: any) {
     return user;
   }
 
   @Post('/signout')
   signOut(@Session() session: any) {
     session.userId = null;
-    throw new GoneException('SIGN OUT ')
+    return 'SIGN OUT ';
   }
 
   @Post('/signup')
